@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ZooMaker Assignment
 
-## Available Scripts
+This assignment focuses on a few things:
 
-In the project directory, you can run:
+- Usage of React components for recurring interface items
+- Handling data and using it in different manners (Redux!)
+- Creating a design by (simple) specification
 
-### `npm start`
+The setup of this assignment is as if it is requested by a client, to make this a realistic exercise.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Introduction
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Meet our client: Zoo Industries, the number one animal distributor around the world. Their core business is providing animals to Zoo's all over the world.
+![Logo of Zoo Industries](./images/Animals/PuffinBird.png)
 
-### `npm test`
+Zoo Industries has asked us to create a WebApp which enables their clients to select the animals they want, and store those (sort of as a webshop, but without the actual buy-button).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Data
 
-### `npm run build`
+Zoo Industries is very privacy aware, so we are not allowed to store any information on our servers. All the progress made by users must be saved in their browsers, and our client accepts the restrictions that brings. Our lead developer mentioned something about saving configuration as a JSON string in [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) (look into that). This means that _no login is needed_
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The list of the available animals is provided through an API of our client. It is a single call you can obtain through https://ernst.mulde.rs/ZooIndustries.json. The client did mention something about them always working on that list (so be aware that data might be incomplete).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We have put the best-of-the-best of our design team on this client work. And they have come up with this award-wining minimalist design. The web app will have three screens.
 
-### `npm run eject`
+The first will be the Zoo Overview page:
+![Overview page](./images/Design/Overview.png)
+On this page you can create a new zoo, open an existing one or delete an old one.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The New zoo page is also very simple:
+![New Zoo page](./images/Design/NewZoo.png)
+On this page a user can enter the name of his zoo. And the budget they have.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The edit page is the most complex:
+![New Zoo page](./images/Design/EditZoo.png)
+On the left you can see the Available Animals list, this is what is returned from the call to the clients API. We want to be able to order that list by price and alphabetical animal name. For the \<select> element you don't have to follow this design, just use the default.
+In the animal images set a placeholder is also provided (in case the API doesn't return an image name for an animal).
+You can select animals only once.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+On the right you see the My Animals. Which speaks for itself I think. The cross lets you remove the animal from what you have selected.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In the top bar you see the name of your zoo, the budget that is left and a possibility to save. Saving saves the progress, and sends you back to the Zoo Overview page.
 
-## Learn More
+## Technical
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+We think Zoo Industries will become a long-time client of ours. So we want maintainable code. This means our lead developer expects a React web-app with a logical naming structure of files and folders. Furthermore remember that we think no function should normally have more than 10 lines of code in it (there are exceptions).
