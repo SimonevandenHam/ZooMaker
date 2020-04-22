@@ -1,0 +1,4 @@
+.addZooFormContainer {
+  display: flex;
+  flex-direction: column;
+}
