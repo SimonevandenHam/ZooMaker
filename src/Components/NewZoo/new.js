@@ -3,18 +3,16 @@ import { connect } from "react-redux";
 
 import HeaderCreateZoo from "../Header/HeaderCreateZoo";
 import NewZooForm from "./NewZooForm";
-import Demo from "./new";
 
 import "../../style/newZoo.css";
 
-export class NewZooContainer extends Component {
+export class Demo extends React.Component {
   render() {
     return (
       <div>
         <header>
           <HeaderCreateZoo />
         </header>
-        <NewZooForm />
       </div>
     );
   }
@@ -24,4 +22,4 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewZooContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);

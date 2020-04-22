@@ -7,11 +7,13 @@ export class HeaderCreateZoo extends Component {
   render() {
     return (
       <div className="createZooHeader">
-        <img
-          src="/assets/images/Animals/PuffinBird.png"
-          alt="ZooMaker Logo"
-          className="logo"
-        />
+        <Link to="/">
+          <img
+            src="/assets/images/Animals/PuffinBird.png"
+            alt="ZooMaker Logo"
+            className="logo"
+          />
+        </Link>
         <div>ZooMaker</div>
       </div>
     );
