@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { CREATE_NEW_ZOO } from "../../store/zooReducer/action";
+import { CREATE_NEW_ZOO } from "../../store/currentZoo/action";
 
 export class NewZooForm extends Component {
   state = {

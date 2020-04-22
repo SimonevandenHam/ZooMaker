@@ -1,6 +1,7 @@
 const initialState = {
   zooName: null,
   butget: null,
+  animals: [],
 };
 
 const newZooReducer = (state = initialState, action) => {
