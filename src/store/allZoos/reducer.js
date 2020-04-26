@@ -1,4 +1,4 @@
-initialState = { zoos: [] };
+const initialState = { zoos: [] };
 
 const allZoosReducer = (state = initialState, action) => {
   switch (action.type) {

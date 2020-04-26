@@ -7,15 +7,18 @@ import { CREATE_NEW_ZOO } from "../../store/currentZoo/action";
 export class NewZooForm extends Component {
   state = {
     zooName: null,
-    zooBudget: null,
+    budget: null,
   };
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+
+    this.props.CREATE_NEW_ZOO(this.state.zooName, parseInt(this.state.budget));
+
+    //reset state
     this.setState({
       zooName: this.value,
-      zooBudget: "",
+      budget: "",
     });
   };
 
@@ -26,6 +29,7 @@ export class NewZooForm extends Component {
   };
 
   render() {
+    console.log(this.props.newZoo);
     return (
       <div className="addZooFormContainer">
         New Zoo
@@ -37,17 +41,17 @@ export class NewZooForm extends Component {
               name="zooName"
               placeholder="Type the name of your Zoo"
               value={this.state.zooName}
-              onChange={this.handleChange}
+              onChange={this.onChange}
             />
           </label>
           <label>
             Budget:
             <input
               type="integer"
-              name="zooBudget"
+              name="budget"
               placeholder="Specify your budget"
-              value={this.state.zooBudget}
-              onChange={this.handleChange}
+              value={this.state.budget}
+              onChange={this.onChange}
             />
           </label>
           <button type="submit">Save</button>
