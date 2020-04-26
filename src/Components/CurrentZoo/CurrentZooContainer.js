@@ -5,6 +5,9 @@ import { bindActionCreators } from "redux";
 import zooMakerApi from "../../api/zooMakerApi";
 import { SET_ANIMALS } from "../../store/animals/action";
 import AvailableAnimals from "./AvailableAnimals";
+import HeaderCurrentZoo from "../Header/HeaderCurrentZoo";
+import MyAnimals from "./MyAnimals";
+import "../../style/currentZoo.css";
 
 export class CurrentZooContainer extends Component {
   componentDidMount() {
@@ -22,11 +25,17 @@ export class CurrentZooContainer extends Component {
   };
 
   render() {
-    console.log("all the ", this.props.animals);
     return (
-      <div>
-        <div>{this.props.animals.animals.length}</div>
-        <AvailableAnimals />
+      <div className="currentZooContainer">
+        <HeaderCurrentZoo />
+        <div className="animalsContainer">
+          <div className="availableAnimalsContainer">
+            <AvailableAnimals />
+          </div>
+          <div className="myAnimalsContainer">
+            <MyAnimals />
+          </div>
+        </div>
       </div>
     );
   }

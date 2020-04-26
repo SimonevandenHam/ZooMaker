@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 
 export class AvailableAnimal extends Component {
   render() {
-    return <div>{this.props.animal.name}</div>;
+    return (
+      <div>
+        {this.props.animal.name}
+        {this.props.animal.price}
+      </div>
+    );
   }
 }
 

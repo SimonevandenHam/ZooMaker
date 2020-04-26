@@ -17,7 +17,12 @@ export class AvailableAnimals extends Component {
   };
 
   render() {
-    return <div>{this.displayAnimals()}hi</div>;
+    return (
+      <div>
+        <h4>Available Animals</h4>
+        <div>{this.displayAnimals()}</div>
+      </div>
+    );
   }
 }
 

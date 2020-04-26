@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  border: solid 1px;
+  border-color: #dcdbdb;
 }
 
 .logo {

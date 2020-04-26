@@ -1,0 +1,13 @@
+.animalsContainer {
+  display: flex;
+}
+
+.availableAnimalsContainer {
+  width: 30%;
+  background-color: #f3f3f3;
+}
+
+.myAnimalsContainer {
+  width: 70%;
+  background-color: #e6e2e2;
+}
