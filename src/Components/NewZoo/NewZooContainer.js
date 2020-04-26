@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import HeaderCreateZoo from "../Header/HeaderCreateZoo";
 import NewZooForm from "./NewZooForm";
-import Demo from "./new";
 
 import "../../style/newZoo.css";
 
