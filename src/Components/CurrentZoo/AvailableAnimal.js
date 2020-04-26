@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-export class MyAnimals extends Component {
+export class AvailableAnimal extends Component {
   render() {
-    return <div></div>;
+    return <div>{this.props.animal.name}</div>;
   }
 }
 
@@ -11,4 +11,4 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyAnimals);
+export default connect(mapStateToProps, mapDispatchToProps)(AvailableAnimal);
