@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import newZooReducer from "./currentZoo/reducer";
+import currentZooReducer from "./currentZoo/reducer";
 import allZoosReducer from "./allZoos/reducer";
 import animalsReducer from "./animals/reducer";
 
 const rootReducer = combineReducers({
-  newZoo: newZooReducer,
+  currentZoo: currentZooReducer,
   allZoos: allZoosReducer,
   animals: animalsReducer,
 });

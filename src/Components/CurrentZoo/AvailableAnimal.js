@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { ADD_ANIMAL } from "../../store/currentZoo/action";
 
 export class AvailableAnimal extends Component {
   displayImage = () => {
@@ -37,6 +40,11 @@ export class AvailableAnimal extends Component {
     );
   };
 
+  saveAnimalToStore = (animal) => {
+    console.log("currentZoo", this.props.currentZoo);
+    this.props.ADD_ANIMAL(animal);
+  };
+
   render() {
     return (
       <div className="displayAnimalDetails">
@@ -45,14 +53,29 @@ export class AvailableAnimal extends Component {
           {this.displayImage()}
         </div>
         <div>{this.displayCosts()}</div>
-        <button> + add</button>
+        <button
+          onClick={() => {
+            this.saveAnimalToStore(this.props.animal);
+          }}
+        >
+          + add
+        </button>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  const { currentZoo } = state;
+  return { currentZoo };
+};
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      ADD_ANIMAL,
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AvailableAnimal);
