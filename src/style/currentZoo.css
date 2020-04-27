@@ -18,8 +18,8 @@
 }
 
 .coins {
-  width: 20px;
-  height: 20px;
+  width: 13px;
+  height: 13px;
 }
 
 .displayAnimalDetails {
@@ -38,4 +38,31 @@
   flex-direction: column;
   font-size: 15px;
   align-items: center;
+}
+
+.myAnimals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.animalPrice {
+  margin: 3px;
+}
+
+.singleAnimalContainer {
+  background-color: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.singleAnimalContainerAnimalImage {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: space-around;
+  margin: auto;
 }
