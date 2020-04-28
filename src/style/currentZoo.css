@@ -20,6 +20,7 @@
 .coins {
   width: 13px;
   height: 13px;
+  margin: 1px;
 }
 
 .displayAnimalDetails {
@@ -48,6 +49,8 @@
 
 .animalPrice {
   margin: 3px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .singleAnimalContainer {
@@ -65,4 +68,14 @@
   margin-bottom: 5px;
   justify-content: space-around;
   margin: auto;
+}
+
+.deleteAnimalButton {
+  font-size: 14px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }

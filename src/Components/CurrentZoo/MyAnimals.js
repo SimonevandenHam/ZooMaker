@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { SET_SELECTED_ANIMALS } from "../../store/currentZoo/action";
 
 export class MyAnimals extends Component {
   displayCurrentZooAnimals = () => {
@@ -7,12 +10,22 @@ export class MyAnimals extends Component {
       return (
         <div key={i} className="singleAnimalContainer">
           <div className="animalPrice">
-            <img
-              className="coins"
-              src={`assets/images/Coins/2coins.svg`}
-              alt="coins"
-            />
-            {animal.price}
+            <div>
+              <img
+                className="coins"
+                src={`assets/images/Coins/2coins.svg`}
+                alt="coins"
+              />
+              {animal.price}
+            </div>
+            <button
+              className="deleteAnimalButton"
+              onClick={() => {
+                this.deleteAnimalFromStore(this.props.animal);
+              }}
+            >
+              X
+            </button>
           </div>
           <div>
             <img
@@ -24,6 +37,18 @@ export class MyAnimals extends Component {
         </div>
       );
     });
+  };
+
+  //FIX DELETE FUNCTION
+  deleteAnimalFromStore = (animal) => {
+    let newAnimalArray = this.props.currentZoo.animals;
+    let filterdAnimalsArray = newAnimalArray.filter(function (a) {
+      console.log("newAnimals", newAnimalArray);
+      console.log("a", a);
+      console.log("animal", animal);
+      return a !== a;
+    });
+    return this.props.SET_SELECTED_ANIMALS(filterdAnimalsArray);
   };
   render() {
     return (
@@ -40,6 +65,12 @@ const mapStateToProps = (state) => {
   return { currentZoo };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      SET_SELECTED_ANIMALS,
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyAnimals);

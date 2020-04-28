@@ -8,9 +8,9 @@ export const ADD_ANIMAL = (animal) => ({
   payload: animal,
 });
 
-export const REMOVE_ANIMAL = (animal) => ({
-  type: "REMOVE_ANIMAL",
-  payload: animal,
+export const SET_SELECTED_ANIMALS = (animals) => ({
+  type: "SET_SELECTED_ANIMALS",
+  payload: animals,
 });
 
 export const RESET = (zoo) => ({
