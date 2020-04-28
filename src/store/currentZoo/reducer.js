@@ -4,7 +4,7 @@ const initialState = {
   animals: [],
 };
 
-const newZooReducer = (state = initialState, action) => {
+const currentZooReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_NEW_ZOO":
       return {
@@ -14,8 +14,8 @@ const newZooReducer = (state = initialState, action) => {
       };
     case "ADD_ANIMAL":
       return { ...state, animals: [...state.animals, action.payload] };
-    case "REMOVE_ANIMAL":
-      return {}; //TO DO
+    case "SET_SELECTED_ANIMALS":
+      return { ...state, animals: action.payload.animals };
     case "RESET":
       return initialState;
     default:
@@ -23,4 +23,4 @@ const newZooReducer = (state = initialState, action) => {
   }
 };
 
-export default newZooReducer;
+export default currentZooReducer;
