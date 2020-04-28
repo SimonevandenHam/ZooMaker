@@ -31,31 +31,36 @@ export class NewZooForm extends Component {
   render() {
     console.log(this.props.newZoo);
     return (
-      <div className="addZooFormContainer">
-        New Zoo
-        <form onSubmit={this.onSubmit}>
-          <label>
-            Zoo name:
-            <input
-              type="text"
-              name="zooName"
-              placeholder="Type the name of your Zoo"
-              value={this.state.zooName}
-              onChange={this.onChange}
-            />
-          </label>
-          <label>
-            Budget:
-            <input
-              type="integer"
-              name="budget"
-              placeholder="Specify your budget"
-              value={this.state.budget}
-              onChange={this.onChange}
-            />
-          </label>
-          <button type="submit">Save</button>
-        </form>
+      <div className="formBox">
+        <div className="newZooHeader">New Zoo</div>
+        <div className="addZooFormContainer">
+          <form onSubmit={this.onSubmit}>
+            <label>
+              Zoo name: <br />
+              <input
+                type="text"
+                name="zooName"
+                placeholder="Type the name of your Zoo"
+                value={this.state.zooName}
+                onChange={this.onChange}
+              />
+            </label>
+            <label>
+              Budget:
+              <br />
+              <input
+                type="integer"
+                name="budget"
+                placeholder="Specify your budget"
+                value={this.state.budget}
+                onChange={this.onChange}
+              />
+            </label>
+            <button type="submit" className="saveZooButton">
+              Save
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
