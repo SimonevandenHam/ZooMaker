@@ -21,7 +21,7 @@ export class MyAnimals extends Component {
             <button
               className="deleteAnimalButton"
               onClick={() => {
-                this.deleteAnimalFromStore(this.props.animal);
+                this.deleteAnimalFromStore(animal);
               }}
             >
               X
@@ -39,17 +39,16 @@ export class MyAnimals extends Component {
     });
   };
 
-  //FIX DELETE FUNCTION
   deleteAnimalFromStore = (animal) => {
-    let newAnimalArray = this.props.currentZoo.animals;
-    let filterdAnimalsArray = newAnimalArray.filter(function (a) {
-      console.log("newAnimals", newAnimalArray);
-      console.log("a", a);
-      console.log("animal", animal);
-      return a !== a;
+    let filterdAnimalsArray = this.props.currentZoo.animals.filter(function (
+      a
+    ) {
+      return animal.name !== a.name;
     });
-    return this.props.SET_SELECTED_ANIMALS(filterdAnimalsArray);
+    console.log("filter", filterdAnimalsArray);
+    this.props.SET_SELECTED_ANIMALS(filterdAnimalsArray);
   };
+
   render() {
     return (
       <div>
