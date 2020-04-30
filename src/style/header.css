@@ -32,11 +32,10 @@
   width: 80px;
 }
 
-.saveZooButton {
+.saveCurrentZooButton {
   background-color: #78a55b;
   color: white;
   border-radius: 5px;
-
   font-size: 15px;
   font-weight: 300;
 }

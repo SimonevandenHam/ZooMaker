@@ -36,7 +36,7 @@ export class headerCurrentZoo extends Component {
           {this.calculateCurrentZooBudget()}
         </div>
         <div className="buttonBox">
-          <button type="submit" className="saveZooButton">
+          <button type="submit" className="saveCurrentZooButton">
             Save
           </button>
         </div>

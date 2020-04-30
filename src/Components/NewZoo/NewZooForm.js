@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import { Redirect } from "react-router-dom";
+
 import { CREATE_NEW_ZOO } from "../../store/currentZoo/action";
 
 export class NewZooForm extends Component {
   state = {
     zooName: null,
     budget: null,
+    redirect: null,
   };
 
   onSubmit = (event) => {
@@ -17,6 +20,7 @@ export class NewZooForm extends Component {
     this.setState({
       zooName: "",
       budget: "",
+      redirect: "/currentzoo",
     });
   };
 
@@ -27,6 +31,10 @@ export class NewZooForm extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
+
     return (
       <div className="formBox">
         <div className="newZooHeader">New Zoo</div>
