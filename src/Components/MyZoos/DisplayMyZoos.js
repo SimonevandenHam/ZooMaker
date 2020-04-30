@@ -8,7 +8,16 @@ export class DisplayMyZoos extends Component {
         <div>{this.props.currentZoo.zooName}</div>
         <div>
           <button className="openButton">Open</button>
-          <button className="deleteButton">Delete</button>
+          <button
+            className="deleteButton"
+            onClick={() => {
+              console.log("klikt dit?");
+              console.log(this.props.currentZoo);
+              this.deleteMyZoo(this.props.currentZoo);
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     );
@@ -17,14 +26,16 @@ export class DisplayMyZoos extends Component {
   deleteMyZoo = (zoo) => {
     this.props.REMOVE_ZOO(zoo);
   };
+
   render() {
+    console.log("allzoooos", this.props.allZoos);
     return <div>{this.displayMyZoos()}</div>;
   }
 }
 
 const mapStateToProps = (state) => {
-  const { currentZoo } = state;
-  return { currentZoo };
+  const { currentZoo, allZoos } = state;
+  return { currentZoo, allZoos };
 };
 
 const mapDispatchToProps = {};

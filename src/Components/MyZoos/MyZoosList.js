@@ -5,17 +5,6 @@ import { Link } from "react-router-dom";
 import DisplayMyZoos from "./DisplayMyZoos";
 
 export class MyZoosList extends Component {
-  displayMyZoos = () => {
-    return (
-      <div>
-        <div>{this.props.currentZoo.zooName}</div>
-        <div>
-          <button></button>
-        </div>
-      </div>
-    );
-  };
-
   render() {
     return (
       <div className="myZoosBox">
