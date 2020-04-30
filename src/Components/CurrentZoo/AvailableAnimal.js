@@ -41,7 +41,7 @@ export class AvailableAnimal extends Component {
   };
 
   saveAnimalToStore = (animal) => {
-    console.log("add animal");
+    console.log("animal price", this.props.currentZoo.animals.price);
     console.log("currentZoo", this.props.currentZoo);
     this.props.ADD_ANIMAL(animal);
   };

@@ -12,12 +12,10 @@ export class NewZooForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-
     this.props.CREATE_NEW_ZOO(this.state.zooName, parseInt(this.state.budget));
-
     //reset state
     this.setState({
-      zooName: this.value,
+      zooName: "",
       budget: "",
     });
   };
@@ -29,7 +27,6 @@ export class NewZooForm extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="formBox">
         <div className="newZooHeader">New Zoo</div>
@@ -67,8 +64,8 @@ export class NewZooForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { newZoo } = state;
-  return { newZoo };
+  const { currentZoo } = state;
+  return { currentZoo };
 };
 
 const mapDispatchToProps = (dispatch) =>
