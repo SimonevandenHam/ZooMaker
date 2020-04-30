@@ -2,9 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import DisplayMyZoos from "./DisplayMyZoos";
+
 export class MyZoosList extends Component {
   displayMyZoos = () => {
-    return this.props.currentZoo.zooName;
+    return (
+      <div>
+        <div>{this.props.currentZoo.zooName}</div>
+        <div>
+          <button></button>
+        </div>
+      </div>
+    );
   };
 
   render() {
@@ -19,8 +28,7 @@ export class MyZoosList extends Component {
           </div>
         </div>
         <div className="myZoosOverviewBox">
-          <div></div>
-          {this.displayMyZoos()}
+          <div>TEST{<DisplayMyZoos />}</div>
         </div>
       </div>
     );

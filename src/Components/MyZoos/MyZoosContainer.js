@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import MyZoosList from "./MyZoosList";
 import HeaderCreateZoo from "../Header/HeaderCreateZoo";
+import "../../style/myZoos.css";
 
 export class MyZoosContainer extends Component {
   render() {
