@@ -10,7 +10,11 @@ export class headerCurrentZoo extends Component {
     this.props.currentZoo.animals.forEach((animal) => {
       currentBudget -= animal.price;
     });
-    return currentBudget;
+    if (currentBudget < 0) {
+      return alert("you are spending to much!");
+    } else {
+      return currentBudget;
+    }
   };
 
   render() {
