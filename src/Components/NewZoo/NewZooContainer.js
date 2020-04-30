@@ -9,10 +9,8 @@ import "../../style/newZoo.css";
 export class NewZooContainer extends Component {
   render() {
     return (
-      <div>
-        <header>
-          <HeaderCreateZoo />
-        </header>
+      <div className="createZooPage">
+        <HeaderCreateZoo />
         <NewZooForm />
       </div>
     );

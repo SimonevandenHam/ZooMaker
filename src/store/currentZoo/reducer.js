@@ -15,7 +15,7 @@ const currentZooReducer = (state = initialState, action) => {
     case "ADD_ANIMAL":
       return { ...state, animals: [...state.animals, action.payload] };
     case "SET_SELECTED_ANIMALS":
-      return { ...state, animals: action.payload.animals };
+      return { ...state, animals: action.payload };
     case "RESET":
       return initialState;
     default:

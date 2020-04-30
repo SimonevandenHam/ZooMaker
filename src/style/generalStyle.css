@@ -4,3 +4,9 @@ body {
   padding: 0;
   background-color: #ece8e8;
 }
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
