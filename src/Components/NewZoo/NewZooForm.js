@@ -29,7 +29,7 @@ export class NewZooForm extends Component {
   };
 
   render() {
-    console.log(this.props.newZoo);
+    console.log(this.state);
     return (
       <div className="formBox">
         <div className="newZooHeader">New Zoo</div>
