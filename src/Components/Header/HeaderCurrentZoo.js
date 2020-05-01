@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Redirect } from "react-router-dom";
 
 import { ADD_ZOO } from "../../store/allZoos/action";
 import "../../style/header.css";
 
 export class headerCurrentZoo extends Component {
+  state = {
+    redirect: null,
+  };
+
   calculateCurrentZooBudget = () => {
     let currentBudget = this.props.currentZoo.budget;
     this.props.currentZoo.animals.forEach((animal) => {
@@ -20,11 +25,13 @@ export class headerCurrentZoo extends Component {
   };
 
   saveZoo = (zoo) => {
-    console.log("save kmop", this.props);
     this.props.ADD_ZOO(zoo);
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return (
       <div className="currentZooHeader">
         <div>
@@ -50,6 +57,7 @@ export class headerCurrentZoo extends Component {
           <button
             onClick={() => {
               this.saveZoo(this.props.currentZoo);
+              this.setState({ redirect: "/" });
             }}
             className="saveCurrentZooButton"
           >

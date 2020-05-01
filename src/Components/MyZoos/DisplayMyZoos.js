@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { REMOVE_ZOO } from "../../store/allZoos/action";
 
 export class DisplayMyZoos extends Component {
   displayMyZoos = () => {
-    return this.props.allZoos.zoos.map((zoo, index) => {
+    return this.props.allZoos.zoos.map((zoo, i) => {
       return (
-        <div key={index} className="localStorageZoo">
+        <div key={i} className="localStorageZoo">
           <div>{zoo.zooName}</div>
           <div>
             <button className="openButton">Open</button>
@@ -13,7 +16,7 @@ export class DisplayMyZoos extends Component {
               className="deleteButton"
               onClick={() => {
                 console.log("klikt dit?");
-                //  this.deleteMyZoo(this.props.allZoos.zoos);
+                this.deleteMyZoo(zoo);
               }}
             >
               Delete
@@ -25,7 +28,11 @@ export class DisplayMyZoos extends Component {
   };
 
   deleteMyZoo = (zoo) => {
-    this.props.REMOVE_ZOO(zoo);
+    let filterdZooArray = this.props.allZoos.zoos.filter(function (a) {
+      return zoo.zooName !== a.zooName;
+    });
+    console.log("filter", filterdZooArray);
+    this.props.REMOVE_ZOO(filterdZooArray);
   };
 
   render() {
@@ -38,6 +45,12 @@ const mapStateToProps = (state) => {
   return { allZoos };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      REMOVE_ZOO,
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayMyZoos);

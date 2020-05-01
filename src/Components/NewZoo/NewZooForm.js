@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
 import { Redirect } from "react-router-dom";
 
 import { CREATE_NEW_ZOO } from "../../store/currentZoo/action";
@@ -62,7 +61,7 @@ export class NewZooForm extends Component {
               />
             </label>
             <button type="submit" className="saveZooButton">
-              Save
+              Next
             </button>
           </form>
         </div>

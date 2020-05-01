@@ -13,7 +13,7 @@ export const loadState = () => {
 export const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    console.log("serialed sy", serializedState);
+
     localStorage.setItem("reduxState", serializedState);
   } catch (err) {
     // ignore write errors
