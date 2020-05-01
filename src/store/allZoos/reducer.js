@@ -8,7 +8,7 @@ const allZoosReducer = (state = initialState, action) => {
         zoos: [...state.zoos, action.payload],
       };
     case "REMOVE_ZOO":
-      return { ...state, zoo: action.payload };
+      return { ...state, zoos /*key uit state */: action.payload };
     default:
       return state;
   }

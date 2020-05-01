@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Redirect } from "react-router-dom";
 
 import { REMOVE_ZOO } from "../../store/allZoos/action";
 
 export class DisplayMyZoos extends Component {
+  state = {
+    redirect: null,
+  };
+
   displayMyZoos = () => {
     return this.props.allZoos.zoos.map((zoo, i) => {
       return (
         <div key={i} className="localStorageZoo">
           <div>{zoo.zooName}</div>
           <div>
-            <button className="openButton">Open</button>
+            <button
+              className="openButton"
+              onClick={() => {
+                console.log("klikt dit?");
+                this.setState({ redirect: "/currentzoo" });
+              }}
+            >
+              Open
+            </button>
             <button
               className="deleteButton"
               onClick={() => {
@@ -36,6 +49,9 @@ export class DisplayMyZoos extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return <div>{this.displayMyZoos()}</div>;
   }
 }
