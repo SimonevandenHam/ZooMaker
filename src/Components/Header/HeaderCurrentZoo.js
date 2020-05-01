@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
+import { ADD_ZOO } from "../../store/allZoos/action";
 import "../../style/header.css";
 
 export class headerCurrentZoo extends Component {
@@ -15,6 +17,11 @@ export class headerCurrentZoo extends Component {
     } else {
       return currentBudget;
     }
+  };
+
+  saveZoo = (zoo) => {
+    console.log("save kmop", this.props);
+    this.props.ADD_ZOO(zoo);
   };
 
   render() {
@@ -40,7 +47,12 @@ export class headerCurrentZoo extends Component {
           {this.calculateCurrentZooBudget()}
         </div>
         <div className="buttonBox">
-          <button type="submit" className="saveCurrentZooButton">
+          <button
+            onClick={() => {
+              this.saveZoo(this.props.currentZoo);
+            }}
+            className="saveCurrentZooButton"
+          >
             Save
           </button>
         </div>
@@ -50,8 +62,17 @@ export class headerCurrentZoo extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { currentZoo } = state;
-  return { currentZoo };
+  const { currentZoo, allZoos } = state;
+
+  return { currentZoo, allZoos };
 };
 
-export default connect(mapStateToProps)(headerCurrentZoo);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      ADD_ZOO,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(headerCurrentZoo);
