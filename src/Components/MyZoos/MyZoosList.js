@@ -17,7 +17,7 @@ export class MyZoosList extends Component {
           </div>
         </div>
         <div className="myZoosOverviewBox">
-          <div>TEST{<DisplayMyZoos />}</div>
+          <div>{<DisplayMyZoos />}</div>
         </div>
       </div>
     );

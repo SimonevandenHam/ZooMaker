@@ -1,12 +1,17 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import ReduxThunk from "redux-thunk";
+import { createStore } from "redux";
+import throttle from "lodash/throttle";
 
 import rootReducer from "./store/rootReducer";
+import { loadState, saveState } from "./api/localStorage";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const persistedState = loadState();
 
-const enhancer = composeEnhancers(applyMiddleware(ReduxThunk));
+const store = createStore(rootReducer, persistedState);
 
-const store = createStore(rootReducer, enhancer);
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }, 1000) //gets only called once per second
+);
 
 export default store;
