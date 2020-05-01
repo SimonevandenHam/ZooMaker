@@ -3,24 +3,26 @@ import { connect } from "react-redux";
 
 export class DisplayMyZoos extends Component {
   displayMyZoos = () => {
-    return (
-      <div>
-        <div>{this.props.currentZoo.zooName}</div>
+    console.log("allzooosayyyrau", this.props.allZoos.zoos);
+    return this.props.allZoos.zoos.map((zoo, index) => {
+      return (
         <div>
-          <button className="openButton">Open</button>
-          <button
-            className="deleteButton"
-            onClick={() => {
-              console.log("klikt dit?");
-              console.log(this.props.currentZoo);
-              this.deleteMyZoo(this.props.currentZoo);
-            }}
-          >
-            Delete
-          </button>
+          <div>{zoo.zooName}</div>
+          <div>
+            <button className="openButton">Open</button>
+            <button
+              className="deleteButton"
+              onClick={() => {
+                console.log("klikt dit?");
+                //  this.deleteMyZoo(this.props.allZoos.zoos);
+              }}
+            >
+              Delete
+            </button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    });
   };
 
   deleteMyZoo = (zoo) => {
