@@ -33,3 +33,32 @@
   height: 35%;
   border-radius: 5px;
 }
+
+.localStorageZoo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px;
+  border-bottom: solid 1px;
+  border-color: #dcdbdb;
+}
+
+.openButton {
+  background-color: #87a7de;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 300;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.deleteButton {
+  background-color: #dd5d60;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 300;
+}

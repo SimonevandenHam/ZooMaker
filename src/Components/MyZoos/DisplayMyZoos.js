@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 
 export class DisplayMyZoos extends Component {
   displayMyZoos = () => {
-    console.log("allzooosayyyrau", this.props.allZoos.zoos);
     return this.props.allZoos.zoos.map((zoo, index) => {
       return (
-        <div>
+        <div key={index} className="localStorageZoo">
           <div>{zoo.zooName}</div>
           <div>
             <button className="openButton">Open</button>
@@ -30,14 +29,13 @@ export class DisplayMyZoos extends Component {
   };
 
   render() {
-    console.log("allzoooos", this.props.allZoos);
     return <div>{this.displayMyZoos()}</div>;
   }
 }
 
 const mapStateToProps = (state) => {
-  const { currentZoo, allZoos } = state;
-  return { currentZoo, allZoos };
+  const { allZoos } = state;
+  return { allZoos };
 };
 
 const mapDispatchToProps = {};
